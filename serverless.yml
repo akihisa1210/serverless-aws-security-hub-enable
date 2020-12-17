@@ -36,14 +36,15 @@ functions:
               messageType:
                 - 'ComplianceChangeNotification'
               newEvaluationResult:
-                - 'NON_COMPLIANT'
+                complianceType:
+                  - 'NON_COMPLIANT'
 
 resources:
   Resources:
     SecurityHubEnabled:
-      Type: AWS::Config::Configure
+      Type: AWS::Config::ConfigRule
       Properties:
-        configRuleName: securityhub-enabled
+        ConfigRuleName: securityhub-enabled
         Source:
           Owner: AWS
           SourceIdentifier: SECURITYHUB_ENABLED
